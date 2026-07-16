@@ -22,8 +22,6 @@ import Resources from './pages/Resources';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 
-// Database Initial Seeder
-import { seedDatabaseIfEmpty } from './data/db';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -71,10 +69,6 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
-  useEffect(() => {
-    // Run database auto-seeder once when application mounts
-    seedDatabaseIfEmpty();
-  }, []);
 
   return (
     <BrowserRouter>
