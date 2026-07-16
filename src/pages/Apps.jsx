@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
-import { apps } from '../data/apps';
+import React, { useState, useEffect } from 'react';
 import AppCard from '../components/AppCard';
+import { getApps } from '../data/db';
 
 export default function Apps() {
+  const [appsList, setAppsList] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('All');
 
   const categories = ['All', 'Productivity', 'Finance', 'Education'];
 
+  useEffect(() => {
+    async function fetchApps() {
+      const data = await getApps();
+      setAppsList(data);
+      setLoading(false);
+    }
+    fetchApps();
+  }, []);
+
   const filteredApps = activeTab === 'All'
-    ? apps
-    : apps.filter(app => app.category === activeTab);
+    ? appsList
+    : appsList.filter(app => app.category === activeTab);
 
   return (
-    <div className="apps-page container fade-in">
+    <div className="apps-page container fade-in" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
       <div className="apps-header">
         <h1>My Applications</h1>
         <p>A full portfolio of Android apps published on the Google Play Store</p>
@@ -30,11 +41,18 @@ export default function Apps() {
         </div>
       </div>
 
-      <div className="grid-3" style={{ marginTop: '40px' }}>
-        {filteredApps.map((app) => (
-          <AppCard key={app.id} app={app} />
-        ))}
-      </div>
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '4rem 0' }}>
+          <div className="loading-spinner"></div>
+        </div>
+      ) : (
+        <div className="grid-3" style={{ marginTop: '40px' }}>
+          {filteredApps.map((app) => (
+            <AppCard key={app.id} app={app} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
+

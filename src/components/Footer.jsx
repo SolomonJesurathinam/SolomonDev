@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 
 export default function Footer() {
@@ -41,10 +42,16 @@ export default function Footer() {
             <Mail size={20} />
           </a>
         </div>
-        <p className="footer-text">
+        <p className="footer-text" style={{ marginBottom: '0.5rem' }}>
           &copy; {currentYear} Solomon J. All rights reserved. Android applications published under Solomon J.
         </p>
+        <div style={{ display: 'flex', gap: '1rem', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+          <Link to="/privacy" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-secondary)'}>Privacy Policy</Link>
+          <span>•</span>
+          <Link to="/admin-login" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-secondary)'}>Admin Console</Link>
+        </div>
       </div>
     </footer>
   );
 }
+

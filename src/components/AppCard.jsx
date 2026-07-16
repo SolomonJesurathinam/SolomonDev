@@ -1,13 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
-import { ArrowRight, Shield, Play } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 
 export default function AppCard({ app }) {
-  // Dynamically map icon name from lucide-react
-  const IconComponent = Icons[app.iconName] || Icons.FileCode;
+  // Map properties to support both camelCase (static) and snake_case (Supabase dynamic)
+  const iconName = app.icon_name || app.iconName || 'FileCode';
+  const packageId = app.package_id || app.packageId;
+  const playStoreUrl = app.play_store_url || app.playStoreUrl;
+  const badgeType = app.badge_type || app.badgeType;
+  const shortDesc = app.short_desc || app.shortDesc;
+  const category = app.category || 'Productivity';
 
-  const categoryClass = `card-${app.category.toLowerCase()}`;
+  // Dynamically map icon name from lucide-react
+  const IconComponent = Icons[iconName] || Icons.FileCode;
+  const categoryClass = `card-${category.toLowerCase()}`;
 
   return (
     <article className={`app-card ${categoryClass} glass fade-in`}>
@@ -16,18 +23,18 @@ export default function AppCard({ app }) {
           <IconComponent size={28} />
         </div>
         <div className="app-title-area">
-          <span className={`badge ${app.badgeType}`}>{app.category}</span>
+          <span className={`badge ${badgeType}`}>{category}</span>
           <h3 className="app-name">{app.name}</h3>
           <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', marginTop: '2px' }}>
-            {app.packageId}
+            {packageId}
           </span>
         </div>
       </div>
 
-      <p className="app-desc">{app.shortDesc}</p>
+      <p className="app-desc">{shortDesc}</p>
 
-      <ul className="app-features-list">
-        {app.features.slice(0, 3).map((feature, idx) => (
+      <ul className="app-features-list" style={{ minHeight: '90px' }}>
+        {app.features && app.features.slice(0, 3).map((feature, idx) => (
           <li key={idx} className="app-feature-item">
             <Icons.Check size={14} />
             <span>{feature}</span>
@@ -41,7 +48,7 @@ export default function AppCard({ app }) {
           <ArrowRight size={14} />
         </Link>
         <a 
-          href={app.playStoreUrl} 
+          href={playStoreUrl} 
           target="_blank" 
           rel="noopener noreferrer" 
           className="btn btn-accent"
@@ -53,3 +60,4 @@ export default function AppCard({ app }) {
     </article>
   );
 }
+

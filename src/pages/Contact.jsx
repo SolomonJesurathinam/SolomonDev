@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
 import { apps } from '../data/apps';
+import { addContactMessage } from '../data/db';
+import CustomDropdown from '../components/CustomDropdown';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,10 +14,6 @@ export default function Contact() {
 
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
 
-  // Replace this with your Formspree Form ID (e.g. "mqazpode")
-  // If left as "YOUR_FORMSPREE_FORM_ID", the form runs a simulated success mock.
-  const FORMSPREE_FORM_ID = "mpqeyyek";
-
   const handleChange = (e) => {
     if (status === 'error') setStatus('idle');
     setFormData({
@@ -24,56 +22,34 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
 
     setStatus('loading');
 
-    if (FORMSPREE_FORM_ID === "YOUR_FORMSPREE_FORM_ID") {
-      // Mock API request delay
-      setTimeout(() => {
-        setStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          app: 'general',
-          message: ''
-        });
-      }, 1200);
-    } else {
-      // Real Formspree submission
-      fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          app: formData.app,
-          message: formData.message
-        })
-      })
-      .then((response) => {
-        if (response.ok) {
-          setStatus('success');
-          setFormData({
-            name: '',
-            email: '',
-            app: 'general',
-            message: ''
-          });
-        } else {
-          setStatus('error');
-        }
-      })
-      .catch(() => {
-        setStatus('error');
+    // Submit directly to Supabase DB (general support corresponds to null app_id)
+    const { data, error } = await addContactMessage({
+      name: formData.name,
+      email: formData.email || null,
+      app_id: formData.app === 'general' ? null : formData.app,
+      message: formData.message
+    });
+
+    if (!error) {
+      setStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        app: 'general',
+        message: ''
       });
+    } else {
+      console.error('Error saving support message:', error);
+      setStatus('error');
     }
   };
+
 
   return (
     <div className="container fade-in" style={{ padding: '40px 24px' }}>
@@ -184,20 +160,14 @@ export default function Contact() {
 
               <div className="form-group">
                 <label htmlFor="app">Inquiry Subject (Regarding App)</label>
-                <select
-                  id="app"
-                  name="app"
+                <CustomDropdown
+                  options={[
+                    { value: 'general', label: 'General Support / Inquiries' },
+                    ...apps.map(app => ({ value: app.id, label: app.name }))
+                  ]}
                   value={formData.app}
-                  onChange={handleChange}
-                  disabled={status === 'loading'}
-                >
-                  <option value="general">General Support / Inquiries</option>
-                  {apps.map((app) => (
-                    <option key={app.id} value={app.id}>
-                      {app.name}
-                    </option>
-                  ))}
-                </select>
+                  onChange={(val) => setFormData(prev => ({ ...prev, app: val }))}
+                />
               </div>
 
               <div className="form-group">
