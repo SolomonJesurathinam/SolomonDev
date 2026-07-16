@@ -16,6 +16,11 @@ export default function Privacy() {
     if (!appIdParam) {
       setSearchParams({ app: selectedApp.id }, { replace: true });
     }
+    if (selectedApp) {
+      document.title = `Privacy Policy - ${selectedApp.name} | Solomon J`;
+    } else {
+      document.title = 'Privacy Center | Solomon J';
+    }
   }, [appIdParam, selectedApp, setSearchParams]);
 
   const handleAppSelect = (id) => {

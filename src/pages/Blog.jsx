@@ -15,6 +15,7 @@ export default function Blog() {
     async function loadBlogs() {
       const data = await getBlogs();
       setBlogs(data);
+      document.title = 'Technical Blog | Solomon J';
       setLoading(false);
     }
     loadBlogs();

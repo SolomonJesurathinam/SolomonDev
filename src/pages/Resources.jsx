@@ -14,6 +14,7 @@ export default function Resources() {
     async function loadResources() {
       const data = await getResources();
       setResources(data);
+      document.title = 'Developer Resources | Solomon J';
       setLoading(false);
     }
     loadResources();

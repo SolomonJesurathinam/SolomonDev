@@ -16,6 +16,7 @@ export default function Home() {
   useEffect(() => {
     async function loadHomeFeed() {
       try {
+        document.title = 'Solomon J | Android App Developer Portfolio';
         const blogsData = await getBlogs();
         const featuresData = await getFeatureRequests();
         const logsData = await getChangelogs();

@@ -32,6 +32,7 @@ export default function FeatureRequests() {
     async function loadData() {
       const appData = await getApps();
       setApps(appData);
+      document.title = 'Suggest Feature Requests | Solomon J';
       if (appData.length > 0) {
         setNewApp(appData[0].id);
       }

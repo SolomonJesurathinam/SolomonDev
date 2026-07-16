@@ -18,6 +18,7 @@ export default function Roadmap() {
     async function loadFeatures() {
       const data = await getFeatureRequests('', '', 'votes');
       setFeatures(data);
+      document.title = 'App Feature Roadmap | Solomon J';
       setLoading(false);
     }
     loadFeatures();

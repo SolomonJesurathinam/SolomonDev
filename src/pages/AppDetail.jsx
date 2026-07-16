@@ -63,6 +63,7 @@ export default function AppDetail() {
       const appData = await getAppById(id);
       if (appData) {
         setApp(appData);
+        document.title = `${appData.name} | Solomon J Apps`;
         
         // Parallel data loading
         const [logsData, featuresData, bugsData] = await Promise.all([

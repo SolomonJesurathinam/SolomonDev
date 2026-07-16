@@ -149,6 +149,7 @@ export default function BlogPost() {
       const data = await getBlogById(id);
       if (data) {
         setPost(data);
+        document.title = `${data.title} | Solomon J Blog`;
         // Increment views
         incrementBlogViews(data.id, data.views);
         

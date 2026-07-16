@@ -13,6 +13,7 @@ export default function Changelog() {
     async function loadApps() {
       const appData = await getApps();
       setApps(appData);
+      document.title = 'App Release Changelogs | Solomon J';
     }
     loadApps();
   }, []);

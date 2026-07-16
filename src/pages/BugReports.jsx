@@ -25,6 +25,7 @@ export default function BugReports() {
     async function loadApps() {
       const appData = await getApps();
       setApps(appData);
+      document.title = 'Submit Bug Report | Solomon J';
       if (appData.length > 0) {
         setAppId(appData[0].id);
       }

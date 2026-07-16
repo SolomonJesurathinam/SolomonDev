@@ -14,6 +14,10 @@ export default function Contact() {
 
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
 
+  useEffect(() => {
+    document.title = 'Contact & Support | Solomon J';
+  }, []);
+
   const handleChange = (e) => {
     if (status === 'error') setStatus('idle');
     setFormData({
