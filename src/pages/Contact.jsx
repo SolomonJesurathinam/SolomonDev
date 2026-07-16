@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
 import { apps } from '../data/apps';
 import { addContactMessage } from '../data/db';
