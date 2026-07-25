@@ -320,5 +320,49 @@ Your notes, habits, calendars, and tasks are private to you. OneGrid stores all 
 ### 3. Support Contact
 If you have questions, please reach out to: **solomon.jesurathinam@gmail.com**
     `
+  },
+  {
+    id: "tanglish-bible",
+    name: "Tanglish Bible",
+    packageId: "com.solomonj.tanglishbible.tanglish_bible",
+    category: "Education",
+    shortDesc: "A modern, minimalist Tanglish Bible mobile application with eye-friendly Material 3 design.",
+    longDesc: `Tanglish Bible is a fast, lightweight, and offline-first mobile application designed for readers who prefer the Tamil scriptures written in Roman script (Tanglish). 
+
+It features custom font controls, multiple theme backdrops, and an easy-to-use search index. With full support for Text-to-Speech (TTS), the app can read scripture out loud, helping you focus and listen on the go.`,
+    features: [
+      "Complete offline Tanglish Bible scriptures with instant load times",
+      "Advanced local search engine to find verses by keywords or references",
+      "Text-to-Speech (TTS) engine to read Bible chapters out loud",
+      "Custom preferences including adjustable font size and theme styles",
+      "Verse sharing sheet support to copy and send verses easily",
+      "Eye-friendly Material 3 layout with dark/light mode configurations"
+    ],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.solomonj.tanglishbible.tanglish_bible",
+    badgeType: "badge-education",
+    iconName: "BookOpen",
+    privacyPolicy: `
+# Privacy Policy for Tanglish Bible
+
+**Last Updated:** July 25, 2026
+
+At Solomon Dev, we care deeply about your privacy. This Privacy Policy describes how the **Tanglish Bible** mobile application handles user data.
+
+### 1. Overview of Data Practices
+The Tanglish Bible application is designed with a **privacy-first approach**. We do not collect, store, or transmit any personal identifiable information (PII) such as your name, email address, phone number, contacts, or location. All user-created data (such as bookmarked verses, notes, reading progress, and theme settings) is stored entirely on your device and is never sent to our servers.
+
+### 2. Device Permissions
+To provide its core features, the application utilizes the following device capabilities:
+- **Internet Access (android.permission.INTERNET):** Used exclusively to download and display advertisements from Google AdMob. No personal data is transmitted.
+- **Access Network State (android.permission.ACCESS_NETWORK_STATE):** Allows the app to verify whether an active internet connection is available before attempting to request ads.
+- **Audio Output / Text-to-Speech:** Uses the system's native text-to-speech engine to read verses aloud. No audio data or voice recording is collected.
+- **Local Storage:** Used to store the offline Bible database (bible.db) and user configurations (theme settings, font sizes, and bookmarks) privately on your device.
+
+### 3. Third-Party Services
+The application integrates with Google AdMob to deliver advertisements. Google AdMob may collect and process device identifiers, advertising IDs, and IP addresses to serve ads. You can opt-out of personalized ads via your Android settings under Privacy > Ads.
+
+### 4. Contact Us
+If you have questions, please reach out to: **solomon.jesurathinam@gmail.com**
+    `
   }
 ];
