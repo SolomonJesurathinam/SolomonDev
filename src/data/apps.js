@@ -361,7 +361,16 @@ To provide its core features, the application utilizes the following device capa
 ### 3. Third-Party Services
 The application integrates with Google AdMob to deliver advertisements. Google AdMob may collect and process device identifiers, advertising IDs, and IP addresses to serve ads. You can opt-out of personalized ads via your Android settings under Privacy > Ads.
 
-### 4. Contact Us
+### 4. Data Deletion Policy & Instructions
+Because Tanglish Bible does not require user accounts, register emails, or upload any of your inputs, we do not store any of your personal data, bookmarks, or reading logs on external servers. All of your user preferences and database configurations are stored strictly locally on your device.
+
+Since no data is stored on our servers, there is no remote data to delete.
+
+**How to delete your local data at any time:**
+- **Local App Data & Bookmarks:** You can permanently delete all local bookmarks, notes, configurations, and database configs by clearing the App's storage data on your phone (Settings > Apps > Tanglish Bible > Storage > Clear Data / Clear Storage) or simply by uninstalling the App from your device.
+- **Advertising Identifiers:** You can reset or delete your advertising tracking ID in your device settings (Settings > Privacy > Ads > Reset/Delete Advertising ID).
+
+### 5. Contact Us
 If you have questions, please reach out to: **solomon.jesurathinam@gmail.com**
     `
   }
