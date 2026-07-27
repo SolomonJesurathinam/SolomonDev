@@ -11,6 +11,7 @@ import {
   voteFeature, addFeatureRequest, getBugReports, addBugReport 
 } from '../data/db';
 import CustomDropdown from '../components/CustomDropdown';
+import { apps } from '../data/apps';
 
 const TABS = [
   { id: 'overview', label: 'Overview', icon: <Info size={16} /> },
@@ -29,8 +30,9 @@ export default function AppDetail() {
   const tabParam = searchParams.get('tab');
   const [activeTab, setActiveTab] = useState(tabParam || 'overview');
   
-  const [app, setApp] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const localApp = apps.find(a => a.id === id);
+  const [app, setApp] = useState(localApp || null);
+  const [loading, setLoading] = useState(!localApp);
   const [activeFaq, setActiveFaq] = useState(null);
 
   // Tab Data States
@@ -59,7 +61,9 @@ export default function AppDetail() {
 
   useEffect(() => {
     async function loadAppHub() {
-      setLoading(true);
+      if (!app) {
+        setLoading(true);
+      }
       const appData = await getAppById(id);
       if (appData) {
         setApp(appData);

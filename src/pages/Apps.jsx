@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AppCard from '../components/AppCard';
 import { getApps } from '../data/db';
+import { apps } from '../data/apps';
 
 export default function Apps() {
-  const [appsList, setAppsList] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [appsList, setAppsList] = useState(apps);
+  const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('All');
 
   const categories = ['All', 'Productivity', 'Finance', 'Education'];
@@ -12,7 +13,9 @@ export default function Apps() {
   useEffect(() => {
     async function fetchApps() {
       const data = await getApps();
-      setAppsList(data);
+      if (data && data.length > 0) {
+        setAppsList(data);
+      }
       setLoading(false);
     }
     fetchApps();

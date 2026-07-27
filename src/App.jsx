@@ -68,25 +68,30 @@ function AnimatedRoutes() {
   );
 }
 
-export default function App() {
+export function AppContent() {
+  return (
+    <div className="app-wrapper">
+      {/* Visual Backdrop */}
+      <BlobBackground />
+      
+      {/* Navigation */}
+      <Navbar />
+      
+      {/* Page Content */}
+      <main>
+        <AnimatedRoutes />
+      </main>
+      
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
+}
 
+export default function App() {
   return (
     <BrowserRouter>
-      <div className="app-wrapper">
-        {/* Visual Backdrop */}
-        <BlobBackground />
-        
-        {/* Navigation */}
-        <Navbar />
-        
-        {/* Page Content */}
-        <main>
-          <AnimatedRoutes />
-        </main>
-        
-        {/* Footer */}
-        <Footer />
-      </div>
+      <AppContent />
     </BrowserRouter>
   );
 }
