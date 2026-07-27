@@ -260,4 +260,11 @@ async function runPrerender() {
   console.log('🎉 Static Site Generation (SSG) completed successfully!');
 }
 
-runPrerender().catch(console.error);
+runPrerender()
+  .then(() => {
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
