@@ -21,6 +21,9 @@ import FeatureRequests from './pages/FeatureRequests';
 import Resources from './pages/Resources';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import Changelog from './pages/Changelog';
+import Roadmap from './pages/Roadmap';
+import BugReports from './pages/BugReports';
 
 
 function AnimatedRoutes() {
@@ -55,7 +58,11 @@ function AnimatedRoutes() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/feedback" element={<FeatureRequests />} />
+        <Route path="/features" element={<FeatureRequests />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/changelogs" element={<Changelog />} />
+        <Route path="/roadmap" element={<Roadmap />} />
+        <Route path="/bugs" element={<BugReports />} />
 
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
