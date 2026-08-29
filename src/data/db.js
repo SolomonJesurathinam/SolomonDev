@@ -219,7 +219,29 @@ export const getApps = async () => {
     console.error('Error fetching apps:', error);
     return staticApps; // Fallback to static
   }
-  return data && data.length > 0 ? data : staticApps;
+  
+  if (data && data.length > 0) {
+    const merged = [...data];
+    // Dynamically append any new apps defined in apps.js that aren't yet in the database
+    for (const staticApp of staticApps) {
+      if (!merged.some(a => a.id === staticApp.id || a.package_id === staticApp.packageId)) {
+        merged.push({
+          id: staticApp.id,
+          name: staticApp.name,
+          package_id: staticApp.packageId,
+          category: staticApp.category,
+          short_desc: staticApp.shortDesc,
+          long_desc: staticApp.longDesc,
+          features: staticApp.features,
+          play_store_url: staticApp.playStoreUrl,
+          badge_type: staticApp.badgeType,
+          icon_name: staticApp.iconName
+        });
+      }
+    }
+    return merged;
+  }
+  return staticApps;
 };
 
 // 2. Fetch Single App

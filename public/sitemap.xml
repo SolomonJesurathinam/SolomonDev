@@ -7,6 +7,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://solomondev.pages.dev/apps</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://solomondev.pages.dev/blog</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -48,6 +53,11 @@
   </url>
 
   <!-- Individual App Details Pages -->
+  <url>
+    <loc>https://solomondev.pages.dev/apps/zip</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://solomondev.pages.dev/apps/ipynb-viewer</loc>
     <changefreq>monthly</changefreq>

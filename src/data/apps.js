@@ -373,5 +373,61 @@ Since no data is stored on our servers, there is no remote data to delete.
 ### 5. Contact Us
 If you have questions, please reach out to: **solomon.jesurathinam@gmail.com**
     `
+  },
+  {
+    id: "zip",
+    name: "Zip",
+    packageId: "com.solomonj.zipgame",
+    category: "Education",
+    shortDesc: "A minimalist drawing puzzle game where you draw paths, pass numbered checkpoints, and complete challenging hurdle levels.",
+    longDesc: `Zip is a premium puzzle and brain game designed for casual players and puzzle enthusiasts alike. Your goal is to draw paths that guide objects through numbered checkpoints while avoiding hurdles and utilizing powerups.
+
+Featuring clean aesthetics, haptic vibration feedback, and custom level progressions, Zip stores all of your progress, streaks, and unlocked board/path skins strictly locally on your device, ensuring a completely private, offline-first experience.`,
+    features: [
+      "Challenging Puzzles: Draw custom paths, pass checkpoints, and complete progressively difficult levels",
+      "Haptic Tactile Feedback: Feel the game with subtle tactile vibration effects when passing checkpoints",
+      "Skin Unlockables: Earn stars and XP to unlock custom board and path skins",
+      "Privacy-First Offline Play: Store progress, streaks, and settings 100% locally on your device"
+    ],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.solomonj.zipgame",
+    badgeType: "badge-education",
+    iconName: "Gamepad2",
+    privacyPolicy: `
+# Privacy Policy for Zip
+
+**Last Updated:** August 30, 2026
+
+At Solomon Dev, we care deeply about your privacy. This Privacy Policy describes how the **Zip** mobile application handles user data.
+
+### 1. Overview of Data Practices
+The Zip application is designed with a privacy-first approach. We do not collect, store, or transmit any personal identifiable information (PII) such as your name, email address, phone number, contacts, or precise physical location.
+
+All user-created game progress (such as completed levels, earned stars, XP points, unlocked board/path skins, booster inventories, daily hurdle streaks, and sound/vibration preferences) is stored entirely locally on your device via secure local storage (SharedPreferences) and is never sent to or saved on external servers.
+
+### 2. Device Permissions & System Usage
+To provide its core gameplay and features, the application utilizes the following device capabilities:
+- **Internet Access (android.permission.INTERNET):** Used exclusively to fetch and display advertisements provided by Google AdMob. No personal user data is collected or transmitted by our application.
+- **Access Network State (android.permission.ACCESS_NETWORK_STATE):** Allows the app to verify whether an active internet connection is available before attempting to request banner, interstitial, or rewarded video advertisements.
+- **Haptic Vibration (android.permission.VIBRATE):** Provides subtle tactile feedback during gameplay when drawing paths, passing numbered checkpoints, or completing puzzles. Can be toggled off at any time in the in-game settings menu.
+- **Local Device Storage:** Used to store game progress files, skin configurations, and local high scores privately on your device.
+
+### 3. Third-Party Services
+The application integrates with Google AdMob (Google LLC) to deliver in-game banner, interstitial, and rewarded video advertisements. Google AdMob may collect and process device identifiers, Google Advertising IDs (AAID), and IP addresses to serve ads, prevent fraud, and report ad analytics.
+
+You can manage or opt out of personalized advertising at any time through your Android device settings under Settings > Privacy > Ads.
+
+### 4. Data Deletion Policy & Instructions
+Because Zip does not require user account registration, email sign-in, or upload any of your gameplay data to remote cloud servers, we do not hold or store any of your personal data on external databases.
+
+Since no user data is stored on external servers, there is no remote cloud data to request deletion of.
+
+**How to delete your local data at any time:**
+- **Local App Progress & Settings:** You can permanently wipe all local game progress, level stars, skin unlocks, booster counts, and configurations by clearing the app's storage on your device (Settings > Apps > Zip > Storage > Clear Storage / Clear Data) or simply by uninstalling the application.
+- **Advertising Identifiers:** You can reset or delete your device's advertising tracking ID in your device settings (Settings > Privacy > Ads > Reset / Delete Advertising ID).
+
+### 5. Contact Us
+If you have any questions or concerns regarding this Privacy Policy or data practices, please reach out to us at:
+**solomon.jesurathinam@gmail.com**
+    `
   }
 ];
