@@ -34,6 +34,8 @@ function AnimatedRoutes() {
   useEffect(() => {
     if (location.pathname !== displayLocation.pathname) {
       setTransitionStage('fadeOut');
+    } else if (location.search !== displayLocation.search || location.hash !== displayLocation.hash) {
+      setDisplayLocation(location);
     }
   }, [location, displayLocation]);
 
